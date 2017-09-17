@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.jxau.soft.domain">
+	<class name="PrivilegeMenuItem" table="tb_privilege_menu_item">
+		<composite-id name="id" class="cn.jxau.soft.domain.PrivilegeId">
+			<key-property name="module" type="string" column="module"/>
+			<key-property name="operation" type="string" column="operation"/>
+		</composite-id>
+		
+		<property name="name" column="menuitem_name" type="string" length="25"/>
+		<property name="sort" column="menuitem_sort" type="int"/>
+		<property name="tip" column="menuitem_tip" type="string" length="50"/>
+		<property name="url" column="menuitem_url" type="string" length="125"/>
+		<property name="info" column="menuitem_info" type="string" length="250"/>
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.jxau.soft.domain">
+	<class name="PriGrpPriRelation" table="tb_prigrp_pri_relation">
+		<composite-id class="cn.jxau.soft.domain.PriGrpPriRelationId">
+			<key-property name="privilegeGroupId" column="privilege_group_id" type="string"/>
+			<key-property name="module" column="module" type="string"/>
+			<key-property name="operation" column="operation" type="string"/>
+		</composite-id>
+	</class>
+</hibernate-mapping>
+

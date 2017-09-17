@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.jxau.soft.domain">
+	<class name="User" table="tb_user" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="user_id" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="nickname" column="user_nickname" type="string" length="50" not-null="true"/>
+		<property name="loginUser" column="login_user" type="string" length="16" not-null="true" unique="true"/>
+		<property name="loginPass" column="login_pass" type="string" length="16" not-null="true"/>
+		<property name="sex" column="user_sex" type="string" length="5"/>
+		<property name="birth" column="user_birth" type="date"/>
+		<property name="nativePlace" column="user_native_place" type="string" length="100"/>				
+		<property name="qq" column="user_qq" type="string" length="15"/>
+		<property name="email" column="user_email" type="string" length="120" not-null="true"/>
+		<property name="phoneNum" column="user_phone_num" type="string" length="15"/>
+		<property name="userPhotoPath" column="user_photo_path" type="string" length="120"/>
+		<property name="registDate" column="regist_date" type="timestamp"/>
+		<property name="lastLoginDate" column="last_login_date" type="timestamp"/>
+		<property name="lastLoginIpAddr" column="last_login_ipaddr" type="string"/>
+		
+		<!-- 用户和文章之间一对多的关系  -->
+		<set name="forumChapters" lazy="true">
+			<key column="chapter_author"/>
+			<one-to-many class="ForumChapter"/>
+		</set>
+		
+		<!-- 用户和被关注用户之间的多对多关系 -->
+		<set name="subscribeUsers" table="tb_user_subscruser" lazy="true">
+			<key column="user_id"/>
+			<many-to-many class="User" column="subscruser_id"/>
+		</set>
+		
+		<!-- 用户和用户喜爱主题之间的多对多关系 -->
+		<set name="likeTopics" table="tb_user_topic" lazy="true">
+			<key column="user_id"/>
+			<many-to-many class="Topic" column="topic_id"/>
+		</set>
+		
+		<property name="info" column="user_info" type="string" length="250"/>
+		<property name="scores" column="user_scores" type="int"/>
+		<property name="activecode" column="user_activecode" type="string" length="32"/>
+		<property name="actived" column="user_actived" type="string" length="1"/>
+	</class>
+</hibernate-mapping>
+

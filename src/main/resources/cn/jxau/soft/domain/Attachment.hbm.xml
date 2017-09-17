@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.jxau.soft.domain">
+	<class name="Attachment" table="tb_attachment" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="attachment_id" type="string">
+			<generator class="uuid"/>
+		</id>
+		<property name="name" column="attachment_name" type="string" length="50"/>
+		<property name="url" column="attachment_url" type="string" length="150"/>
+		<property name="info" column="attachment_info" type="string" length="250"/>
+		<property name="downloadCount" column="attachment_download_count" type="int"/>
+		
+		<many-to-one name="chapter" column="chapter_id" class="ForumChapter"/>
+	</class>
+</hibernate-mapping>
+

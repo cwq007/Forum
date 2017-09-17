@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+	"http://apach.software.org/dtd/struts-2.3.dtd">
+<struts>
+	<package name="chapterajax" namespace="/chapterajax" extends="json-default, struts-default">
+		<interceptors>
+			<interceptor-stack name="rewriteJsonStack">
+				<interceptor-ref name="json" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="rewriteJsonStack"/> 
+		
+		<action name="chapterajax_*" class="chapterAjaxAction" method="{1}">
+			<result type="json" name="success">
+				<param name="noCache">true</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>

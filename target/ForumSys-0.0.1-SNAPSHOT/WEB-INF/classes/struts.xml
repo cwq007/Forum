@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+	"http://apach.software.org/dtd/struts-2.3.dtd">
+<struts>
+	<constant name="object.factory" value="spring"/>
+	
+	<include file="cn/jxau/soft/web/action/struts-user.xml"/>
+	<include file="cn/jxau/soft/web/action/ajax/struts-ajax-user.xml"/>
+</struts>

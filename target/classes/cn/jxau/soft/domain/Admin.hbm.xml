@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.jxau.soft.domain">
+	<class name="Admin" table="tb_admin" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="admin_id" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="loginUser" column="login_user" type="string" length="20" not-null="true"/>
+		<property name="loginPass" column="login_pass" type="string" length="20" not-null="true"/>
+		<property name="unabled" column="admin_unabled" type="string" length="1"/>
+		<property name="createdDate" column="admin_createdDate" type="timestamp"/>
+		
+		<!-- 父管理员与子管理员之间多对多之间的关系 -->
+		<set name="manageredAdmins" table="tb_paradmin_subadmin" lazy="true">
+			<key column="admin_id"/>
+			<many-to-many class="Admin" column="sub_manager_id"/>
+		</set>
+		
+		<!-- 管理员和文章主题之间一对多的关系 -->
+		<set name="topics" cascade="all" lazy="true">
+			<key column="admin_id"/>
+			<one-to-many class="Topic"/>
+		</set>
+		
+		<!-- 管理员和管理权限组之间多对一之间的关系 -->
+		<many-to-one name="privilegeGroup" class="PrivilegeGroup" column="privilege_group_id"/>
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.jxau.soft.domain">
+	<class name="Privilege" table="tb_privilege">
+		<composite-id class="cn.jxau.soft.domain.PrivilegeId">
+			<key-property name="module" type="string" column="module"/>
+			<key-property name="operation" type="string" column="operation"/>
+		</composite-id>
+		<property name="name" column="privilege_name" type="string" length="20"/>
+		<property name="tip" column="privilege_tip" type="string" length="50"/>
+		<property name="sort" column="privilege_sort" type="int"/>
+		<property name="info" column="privilege_info" type="string" length="250"/>
+	</class>
+</hibernate-mapping>
+

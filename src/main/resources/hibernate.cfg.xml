@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+	"-//Hibernate/Hibernate Configuration 3.0 DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		
+		<mapping resource="cn/jxau/soft/domain/Admin.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/Attachment.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/ForumChapter.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/Praise.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/PriGrpPriRelation.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/Privilege.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/PrivilegeGroup.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/PrivilegeMenuItem.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/Summary.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/Topic.hbm.xml"/>		
+		<mapping resource="cn/jxau/soft/domain/User.hbm.xml"/>		
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.jxau.soft.domain">
+	<class name="PrivilegeGroup" table="tb_privilege_group">
+		<id column="privilege_group_id" type="string">
+			<generator class="uuid"/>
+		</id>
+		<property name="name" column="privilege_group_name" type="string" length="25"/>
+		<property name="info" column="privilege_group_info" type="string" length="250"/>
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+	"http://apach.software.org/dtd/struts-2.3.dtd">
+<struts>
+	<package name="updownload" namespace="/updownload" extends="struts-default">
+		<action name="updownload_*" class="uploadAndDownLoadAction" method="{1}">
+			<result name="download" type="stream">
+				<param name="Content-Position">attachment;filename=${filename}</param>
+				<param name="contentType">${contentType}</param>
+			</result>
+			<result name="{1}" type="stream">
+				<param name="savePath">${savePath}</param>
+				<param name="allowedTypes">${allowedTypes}</param>
+				<param name="contentType">text/plain</param>
+			</result>
+		</action>
+	</package>	
+</struts>

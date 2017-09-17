@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+	"http://apach.software.org/dtd/struts-2.3.dtd">
+<struts>
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="redirLogin" type="redirect">/jsps/users/login.jsp</result>
+			<result name="registSuccess" type="redirect">/jsps/users/registSuccess.jsp</result>
+			<result name="index">/index.jsp</result>
+			<result name="redirIndex" type="redirect">/index.jsp</result>
+			<result name="input">/jsps/users/login.jsp</result>
+			<result name="showImg" type="stream">
+				<param name="inputName">inputStream</param>
+				<param name="contentType">image/gif</param>
+			</result>
+			<result name="userinfo">/jsps/users/profile/userinfo.jsp</result>
+			<result name="chapterinfo">/jsps/users/profile/chapterinfo.jsp</result>
+			<result name="userlikes">/jsps/users/profile/userlikes.jsp</result>
+			<result name="usersubscribe">/jsps/users/profile/usersubscribe.jsp</result>
+		</action>
+	</package>	
+</struts>
